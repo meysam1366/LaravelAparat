@@ -4,15 +4,19 @@
     "authors": [
         {
             "name": "Meysam Maghsoudi",
-            "email": "safir.1987@gmail.com"
+            "email": "safir.1987@gmail.com",
+            "homepage": "https://mmaghsoudi.ir",
+            "role": "Developer"
         }
     ],
     "require": {},
+    "homepage": "https://github.com/meysam1366/LaravelAparat",
     "autoload": {
         "psr-4": {
             "meysammaghsoudi\\LaravelAparat\\" : "src/"
         }
     },
+    "license": "MIT",
     "extra": {
         "laravel":{
             "providers": [
