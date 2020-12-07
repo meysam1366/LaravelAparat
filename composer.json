@@ -19,5 +19,6 @@
                 "meysammaghsoudi\\LaravelAparat\\LaravelAparatServiceProvider"
             ]
         }
-    }
+    },
+    "version": "1.0.0"
 }
