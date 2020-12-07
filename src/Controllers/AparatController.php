@@ -18,7 +18,7 @@ class AparatController extends Controller
     {
         $aparat = new Aparat();
         $categories = $aparat->getCategories();
-        return view('showForm', compact('categories'));
+        return view('aparat.showForm', compact('categories'));
     }
 
     public function sendVideo(Request $request)
