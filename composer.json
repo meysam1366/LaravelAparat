@@ -13,7 +13,7 @@
     "homepage": "https://github.com/meysam1366/LaravelAparat",
     "autoload": {
         "psr-4": {
-            "meysammaghsoudi\\LaravelAparat\\" : "src/"
+            "meysammaghsoudi\\LaravelAparat\\" : "src"
         }
     },
     "license": "MIT",
@@ -21,6 +21,9 @@
         "laravel":{
             "providers": [
                 "meysammaghsoudi\\LaravelAparat\\LaravelAparatServiceProvider"
+            ],
+            "dont-discover": [
+                "meysammaghsoudi/LaravelAparat"
             ]
         }
     },
