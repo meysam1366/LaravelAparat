@@ -9,7 +9,7 @@
         <div class="form-group">
             <select name="category" id="category" class="form-control">
                 @foreach($categories['categories'] as $category)
-                    <option for="{{ $categort->id }}">{{ $categort->name }}</option>
+                    <option for="{{ $category['id'] }}">{{ $category['name'] }}</option>
                 @endforeach
             </select>
         </div>
