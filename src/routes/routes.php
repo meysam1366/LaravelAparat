@@ -3,6 +3,7 @@
 namespace meysammaghsoudi\LaravelAparat\routes;
 
 use Illuminate\Support\Facades\Route;
+use meysammaghsoudi\LaravelAparat\Controllers\AparatController;
 
 
-Route::get('/', )
+Route::get('/', [AparatController::class, 'index']);
