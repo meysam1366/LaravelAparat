@@ -7,3 +7,4 @@ use meysammaghsoudi\LaravelAparat\Controllers\AparatController;
 
 
 Route::get('/aparat', [AparatController::class, 'index']);
+
