@@ -5,6 +5,10 @@ namespace meysammaghsoudi\LaravelAparat\routes;
 use Illuminate\Support\Facades\Route;
 use meysammaghsoudi\LaravelAparat\Controllers\AparatController;
 
-
-Route::get('/aparat', [AparatController::class, 'index']);
+Route::prefix('aparat')->group(function() {
+    Route::get('/getProfile', [AparatController::class, 'getProfile'])->name('getProfile');
+    Route::get('/getCategories', [AparatController::class, 'getCategories'])->name('getCategories');
+    Route::get('/sendVideo', [AparatController::class, 'showFormVideo'])->showFormVideo('showFormVideo');
+    Route::post('/sendVideo', [AparatController::class, 'sendVideo'])->name('sendVideo');
+});
 

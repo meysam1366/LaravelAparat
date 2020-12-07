@@ -19,6 +19,13 @@ class Aparat
         $this->formAction = $uploadform->uploadform->formAction;
     }
 
+    public function getCategories()
+    {
+        $url = "https://www.aparat.com/etc/api/categories";
+        $response = Http::get($url);
+        return $response->json();
+    }
+
     public function getProfile()
     {
         $url = "https://www.aparat.com/etc/api/profile/username/".config('aparat.username');
@@ -26,14 +33,14 @@ class Aparat
         return $response->json();
     }
 
-    public function sendVideo($title, $videoFile, $tags, $description)
+    public function sendVideo($title, $category, $videoFile, $tags, $description)
     {
         $document = new CurlFile($videoFile, mime_content_type($videoFile), basename($videoFile));
         $file = array(
             'video' => $document,
             'frm-id' => config('aparat.frm-id'),
             "data[title]" => $title,
-            "data[category]" => 7,
+            "data[category]" => $category,
             "data[tags]" => $tags,
             "data[comment]" => "yes",
             "data[descr]" => $description,
@@ -43,6 +50,8 @@ class Aparat
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
-        print_r(curl_exec($ch));
+        $result = curl_exec($ch);
+
+        return json_encode($result);
     }
 }
