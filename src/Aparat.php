@@ -11,7 +11,7 @@ class Aparat
 
     public function __construct()
     {
-        $users = file_get_contents("http://www.aparat.com/etc/api/login/luser/".config('aparat.luser')."/lpass/".config('aparat.luser'));
+        $users = file_get_contents("http://www.aparat.com/etc/api/login/luser/".config('aparat.luser')."/lpass/".config('aparat.lpass'));
         $users = json_decode($users);
         $ltoken = $users->login->ltoken;
         $formAction = file_get_contents("http://www.aparat.com/etc/api/upload%E2%80%8Bform%E2%80%8B/luser/".config('aparat.luser')."/ltoken/".$ltoken);
@@ -23,7 +23,7 @@ class Aparat
     {
         $url = "https://www.aparat.com/etc/api/profile/username/".config('aparat.username');
         $response = Http::get($url);
-        return $response->body();
+        return $response->json();
     }
 
     public function sendVideo($title, $videoFile, $tags, $description)
