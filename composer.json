@@ -1,0 +1,23 @@
+{
+    "name": "meysam/aparat",
+    "description": "Laravel Package for work with api aparat",
+    "authors": [
+        {
+            "name": "Meysam Maghsoudi",
+            "email": "safir.1987@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "meysammaghsoudi\\LaravelAparat\\" : "src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers": [
+                "meysammaghsoudi\\LaravelAparat\\LaravelAparatServiceProvider"
+            ]
+        }
+    }
+}
