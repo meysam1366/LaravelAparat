@@ -14,7 +14,7 @@ class Aparat
         $users = file_get_contents("http://www.aparat.com/etc/api/login/luser/".config('aparat.luser')."/lpass/".config('aparat.luser'));
         $users = json_decode($users);
         $ltoken = $users->login->ltoken;
-        $formAction = file_get_contents("http://www.aparat.com/etc/api/upload%E2%80%8Bform%E2%80%8B/luser/musicgalaxyir/ltoken/".$ltoken);
+        $formAction = file_get_contents("http://www.aparat.com/etc/api/upload%E2%80%8Bform%E2%80%8B/luser/".config('aparat.luser')."/ltoken/".$ltoken);
         $uploadform = json_decode($formAction);
         $this->formAction = $uploadform->uploadform->formAction;
     }
