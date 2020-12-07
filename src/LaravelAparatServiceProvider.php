@@ -9,7 +9,7 @@ class LaravelAparatServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/aparat.php' => config_path('aparat.php'),
+            __DIR__.'./config/aparat.php' => config_path('aparat.php'),
             __DIR__.'./views' => resource_path('views/vendor/aparat')
         ]);
         $this->loadViewsFrom(__DIR__.'./views/','aparat');
@@ -19,7 +19,7 @@ class LaravelAparatServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/aparat.php',
+            __DIR__.'./config/aparat.php',
             'aparat'
         );
     }
