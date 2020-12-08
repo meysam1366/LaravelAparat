@@ -52,6 +52,6 @@ class Aparat
         curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
         $result = curl_exec($ch);
 
-        return json_encode($result);
+        return $result;
     }
 }

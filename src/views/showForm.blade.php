@@ -3,6 +3,7 @@
 @section('content')
 
     <form action="{{ route('sendVideo') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <input type="text" name="title" value="{{ old('title') }}" id="title" class="form-control" placeholder="select title" />
         </div>
@@ -17,7 +18,7 @@
             <input type="text" name="tags" value="{{ old('tags') }}" id="tags" class="form-control" placeholder="select tags" />
         </div>
         <div class="form-group">
-            <textarea col="3" row="5" name="description" id="description" placeholder="select description">{{ old('description') }}</textarea>
+            <textarea col="3" row="5" name="description" id="description" class="form-control" placeholder="select description">{{ old('description') }}</textarea>
         </div>
         <div class="form-group">
             <input type="file" name="video" id="video" class="form-control" placeholder="select video" />
