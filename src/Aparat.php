@@ -6,19 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class Aparat
 {
-
-    protected $formAction;
-
-    public function __construct()
-    {
-        $users = file_get_contents("http://www.aparat.com/etc/api/login/luser/".config('aparat.luser')."/lpass/".config('aparat.lpass'));
-        $users = json_decode($users);
-        $ltoken = $users->login->ltoken;
-        $formAction = file_get_contents("http://www.aparat.com/etc/api/upload%E2%80%8Bform%E2%80%8B/luser/".config('aparat.luser')."/ltoken/".$ltoken);
-        $uploadform = json_decode($formAction);
-        $this->formAction = $uploadform->uploadform->formAction;
-    }
-
+    
     public function getCategories()
     {
         $url = "https://www.aparat.com/etc/api/categories";
@@ -35,7 +23,19 @@ class Aparat
 
     public function sendVideo($title, $category, $videoFile, $tags, $description)
     {
-        $document = new CurlFile($videoFile, mime_content_type($videoFile), basename($videoFile));
+        try{
+            $users = file_get_contents("http://www.aparat.com/etc/api/login/luser/".config('aparat.luser')."/lpass/".config('aparat.lpass'));
+            $users = json_decode($users);
+            $users->login->type == 'error' ? dd($users->login->value)  : '';
+            $ltoken = $users->login->ltoken;
+            $formAction = file_get_contents("http://www.aparat.com/etc/api/upload%E2%80%8Bform%E2%80%8B/luser/".config('aparat.luser')."/ltoken/".$ltoken);
+            $uploadform = json_decode($formAction);
+            $formAction = $uploadform->uploadform->formAction;
+        }catch(\Exception $e) {
+            echo "Error: " . $e->getMessage() . " Line:  " . $e->getLine();
+        }
+
+        $document = new \CurlFile($videoFile, mime_content_type($videoFile), basename($videoFile));
         $file = array(
             'video' => $document,
             'frm-id' => config('aparat.frm-id'),
@@ -46,12 +46,11 @@ class Aparat
             "data[descr]" => $description,
         );
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->formAction);
+        curl_setopt($ch, CURLOPT_URL, $formAction);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
         $result = curl_exec($ch);
-
-        return $result;
+        return json_decode($result, true);
     }
 }

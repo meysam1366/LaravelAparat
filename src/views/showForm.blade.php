@@ -10,7 +10,7 @@
         <div class="form-group">
             <select name="category" id="category" class="form-control">
                 @foreach($categories['categories'] as $category)
-                    <option for="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                    <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                 @endforeach
             </select>
         </div>
@@ -29,5 +29,11 @@
             </button>
         </div>
     </form>
+
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
 
 @endsection
