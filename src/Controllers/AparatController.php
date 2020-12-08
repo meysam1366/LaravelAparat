@@ -27,7 +27,7 @@ class AparatController extends Controller
             'title' => 'required',
             'category' => 'required',
             'description' => 'min:5',
-            'file' => 'required'
+            'video' => 'required'
         ]);
 
         $aparat = new Aparat();
