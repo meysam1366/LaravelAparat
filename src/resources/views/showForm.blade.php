@@ -2,6 +2,14 @@
 
 @section('content')
 
+    @if(count($errors) > 0)
+        <ul>
+            @foreach($errors->all() as $error)
+                <li class="alert alert-danger">{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     <form action="{{ route('sendVideo') }}" class="mt-3" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
