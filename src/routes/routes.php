@@ -3,7 +3,7 @@
 namespace meysammaghsoudi\LaravelAparat\routes;
 
 use Illuminate\Support\Facades\Route;
-use meysammaghsoudi\LaravelAparat\Controllers\AparatController;
+use meysammaghsoudi\LaravelAparat\Http\Controllers\AparatController;
 
 Route::prefix('aparat')->middleware('web')->group(function() {
     Route::get('/getProfile', [AparatController::class, 'getProfile'])->name('getProfile');
