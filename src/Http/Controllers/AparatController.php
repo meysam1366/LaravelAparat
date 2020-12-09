@@ -1,6 +1,6 @@
 <?php
 
-namespace meysammaghsoudi\LaravelAparat\Controllers;
+namespace meysammaghsoudi\LaravelAparat\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use meysammaghsoudi\LaravelAparat\Aparat;

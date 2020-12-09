@@ -10,10 +10,11 @@ class LaravelAparatServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/config/aparat.php' => config_path('aparat.php'),
-            __DIR__.'/views' => resource_path('views/vendor/aparat')
+            __DIR__.'/resources/views' => resource_path('views/vendor/aparat')
         ]);
-        $this->loadViewsFrom(__DIR__.'/views/','aparat');
-        $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
+
+        $this->registerView();
+        $this->registerRoutes();
     }
 
     public function register()
@@ -22,5 +23,15 @@ class LaravelAparatServiceProvider extends ServiceProvider
             __DIR__.'/config/aparat.php',
             'aparat'
         );
+    }
+
+    protected function registerView()
+    {
+        $this->loadViewsFrom(__DIR__.'/views/','aparat');
+    }
+
+    protected function registerRoutes()
+    {
+        $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
     }
 }

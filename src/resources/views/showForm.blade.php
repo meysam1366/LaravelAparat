@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="{{ route('sendVideo') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('sendVideo') }}" class="mt-3" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <input type="text" name="title" value="{{ old('title') }}" id="title" class="form-control" placeholder="select title" />
