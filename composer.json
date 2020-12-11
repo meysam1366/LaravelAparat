@@ -9,7 +9,12 @@
             "role": "Developer"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.1.3|7.2.*|7.3.*|7.4.*",
+        "laravel/framework":"6.*|7.*|8.*",
+        "illuminate/support": "^6.0",
+        "guzzlehttp/guzzle": "^7.2"
+    },
     "homepage": "https://github.com/meysam1366/LaravelAparat",
     "autoload": {
         "psr-4": {
@@ -17,6 +22,7 @@
         }
     },
     "license": "MIT",
+    "type": "library",
     "extra": {
         "laravel":{
             "providers": [
@@ -24,8 +30,11 @@
             ],
             "dont-discover": [
                 "meysammaghsoudi/LaravelAparat"
-            ]
+            ],
+            "aliases": {
+                "Aparat": "Meysammaghsoudi\\Aparat\\AparatFacade"
+            }
         }
     },
-    "version": "1.0.21"
+    "version": "1.0.22"
 }

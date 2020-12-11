@@ -42,8 +42,8 @@ class AparatController extends Controller
         $result = $aparat->sendVideo($title, $category, $dir.'/'.$fileName, $tags, $description);
         $type = $result['uploadpost']['type'];
         $uid = $result['uploadpost']['uid'];
-        $message = 'Video Successfully Uploaded<br>Link Video <a href="https://www.aparat.com/v/'.$uid.'">https://www.aparat.com/v/'.$uid.'</a>';
-        $type == 'success' ? session()->flush('message', $message) : session()->flush('message', $result);
+        $message = "Video Successfully Uploaded<br>Link Video<br><a href='https://www.aparat.com/v/".$uid."'>https://www.aparat.com/v/".$uid."</a>";
+        $type == 'success' ? $request->session()->put('message', $message) : $request->session()->put('message', $result);
         return redirect(route('showFormVideo'));
     }
 }

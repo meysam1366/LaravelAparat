@@ -4,7 +4,7 @@ namespace meysammaghsoudi\LaravelAparat;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelAparatServiceProvider extends ServiceProvider
+class AparatServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -23,6 +23,10 @@ class LaravelAparatServiceProvider extends ServiceProvider
             __DIR__.'/config/aparat.php',
             'aparat'
         );
+
+        $this->app->singleton('aparat', function() {
+            return new Aparat;
+        });
     }
 
     protected function registerView()
