@@ -1,5 +1,5 @@
 ```
-in package for work with api website aparat
+package for work with api website aparat
 
 ```
 
