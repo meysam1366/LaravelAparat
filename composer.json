@@ -1,6 +1,7 @@
 {
     "name": "meysammaghsoudi/aparat",
     "description": "Laravel Package for work with web service aparat",
+    "keywords": ["laravel","laravel-aparat","laravel-package","PHP","aparat"],
     "authors": [
         {
             "name": "Meysam Maghsoudi",
