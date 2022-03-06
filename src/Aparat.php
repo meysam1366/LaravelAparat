@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class Aparat
 {
-    
+
     public function getCategories()
     {
         $url = "https://www.aparat.com/etc/api/categories";
@@ -38,7 +38,7 @@ class Aparat
         $document = new \CurlFile($videoFile, mime_content_type($videoFile), basename($videoFile));
         $file = array(
             'video' => $document,
-            'frm-id' => config('aparat.frm-id'),
+            'frm-id' => $uploadform->uploadform->{'frm-id'},
             "data[title]" => $title,
             "data[category]" => $category,
             "data[tags]" => $tags,

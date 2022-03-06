@@ -3,6 +3,5 @@
 return [
     'luser' => '',
     'lpass' => '',
-    'username' => '',
-    'frm-id' => ''
+    'username' => ''
 ];

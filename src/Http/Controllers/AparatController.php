@@ -43,7 +43,12 @@ class AparatController extends Controller
         $type = $result['uploadpost']['type'];
         $uid = $result['uploadpost']['uid'];
         $message = "ویدئو با موفقیت آپلود شد \n <a href='https://www.aparat.com/v/".$uid."'>https://www.aparat.com/v/".$uid."</a>";
-        $type == 'success' ? $request->session()->put('message', $message) : $request->session()->put('message', $result);
+        if ($type == 'success') {
+            session()->flash('message', $message);
+            unlink($dir.'/'.$fileName);
+        } else {
+            session()->flash('message', $result);
+        }
         return redirect(route('showFormVideo'));
     }
 }
