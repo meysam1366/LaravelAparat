@@ -3,5 +3,5 @@
 return [
     'luser' => '',
     'lpass' => '',
-    'username' => ''
+    'username' => '',
 ];
