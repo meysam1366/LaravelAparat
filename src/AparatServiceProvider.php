@@ -10,7 +10,12 @@ class AparatServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/config/aparat.php' => config_path('aparat.php'),
-            __DIR__.'/resources/views' => resource_path('views/vendor/aparat')
+            __DIR__.'/resources/views' => resource_path('views/vendor/aparat'),
+            __DIR__.'/public/css' => public_path('vendor/css'),
+            __DIR__.'/public/js' => public_path('vendor/js'),
+            __DIR__.'/public/fonts' => public_path('vendor/fonts'),
+            __DIR__.'/public/images' => public_path('vendor/images'),
+            __DIR__.'/public/bower_components' => public_path('vendor/bower_components'),
         ]);
 
         $this->registerView();

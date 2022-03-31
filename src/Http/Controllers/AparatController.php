@@ -11,7 +11,16 @@ class AparatController extends Controller
     public function getProfile()
     {
         $aparat = new Aparat();
-        return $aparat->getProfile();
+        $profile = $aparat->getProfile();
+        return view('vendor.aparat.profile', compact('profile'));
+    }
+
+    public function videos()
+    {
+        $aparat = new Aparat();
+        $videos = $aparat->getVideos();
+        $total_video = $aparat->getProfile()['profile']['video_cnt'];
+        return view('vendor.aparat.index', compact('videos', 'total_video'));
     }
 
     public function showFormVideo()

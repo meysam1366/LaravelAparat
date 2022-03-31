@@ -21,6 +21,13 @@ class Aparat
         return $response->json();
     }
 
+    public function getVideos()
+    {
+        $url = "https://www.aparat.com/etc/api/videoByUser/username/".config('aparat.username')."/perpage/10";
+        $response = Http::get($url);
+        return $response->json();
+    }
+
     public function sendVideo($title, $category, $videoFile, $tags, $description)
     {
         try{

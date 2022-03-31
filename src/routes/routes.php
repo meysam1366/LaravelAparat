@@ -7,6 +7,7 @@ use meysammaghsoudi\LaravelAparat\Http\Controllers\AparatController;
 
 Route::prefix('aparat')->middleware('web')->group(function() {
     Route::get('/getProfile', [AparatController::class, 'getProfile'])->name('getProfile');
+    Route::get('/videos', [AparatController::class, 'videos'])->name('videos');
     Route::get('/getCategories', [AparatController::class, 'getCategories'])->name('getCategories');
     Route::get('/sendVideo', [AparatController::class, 'showFormVideo'])->name('showFormVideo');
     Route::post('/sendVideo', [AparatController::class, 'sendVideo'])->name('sendVideo');
