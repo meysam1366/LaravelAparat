@@ -32,7 +32,7 @@
                 "meysammaghsoudi/LaravelAparat"
             ],
             "aliases": {
-                "Aparat": "Meysammaghsoudi\\Aparat\\AparatFacade"
+                "Aparat": "meysammaghsoudi\\LaravelAparat\\AparatFacade"
             }
         }
     }
