@@ -20,7 +20,7 @@
         "psr-4": {
             "meysammaghsoudi\\LaravelAparat\\" : "src"
         }
-    },
+    }, 
     "license": "MIT",
     "type": "library",
     "extra": {
