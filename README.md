@@ -4,9 +4,8 @@ package for work with web service aparat
 ```
 
 # How install package?
-composer require meysammaghsoudi/aparat
-<br>
-php artisan vendor:publish
+* composer require meysammaghsoudi/aparat
+* php artisan vendor:publish
 
 # Requirement*
 composer require guzzlehttp/guzzle
